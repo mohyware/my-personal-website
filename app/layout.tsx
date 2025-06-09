@@ -56,7 +56,7 @@ export default function RootLayout({
                                                 <a href="https://x.com/mohyware" target="_blank" aria-label="X"><Twitter /></a>
                                                 <a href="https://github.com/mohyware" target="_blank" aria-label="GitHub"><Github /></a>
                                                 <a href="https://www.linkedin.com/in/mohyware" target="_blank" aria-label="LinkedIn"><Linkedin /></a>
-                                                <a href="mailto:mohyware@gmail.com" aria-label="Email" target="_blank" ><Mail /></a>
+                                                <a href="mailto:mohieelden50@gmail.com" aria-label="Email" target="_blank" ><Mail /></a>
                                             </div>
                                             <a href="https://drive.google.com/file/d/1p-y6slBxUvMZ21R7IFVVVXLqsDr45zoB/view" target="_blank"
                                                 className="flex items-center gap-2 bg-gray-100 hover:bg-gray-300 px-3 py-1 mt-2 rounded-full text-gray-800">

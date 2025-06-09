@@ -1,10 +1,11 @@
-'use client'
+// 'use client'
 import Link from "next/link"
 import Image from "next/image"
-import { Project } from "../data/types"
-import { projects } from "../data/projects"
+import { Project } from "../utils/types"
+import { fetchAllProjects } from "../utils/projects"
 
-export default function Home() {
+export default async function Home() {
+    const projects = await fetchAllProjects();
     return (
         <div>
             {/* About Section */}
@@ -38,10 +39,10 @@ export default function Home() {
                         >
                             <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-3">
-                                    <span className="text-2xl">🎬</span>
+                                    {/* <span className="text-2xl"></span> */}
                                     <h3 className="text-xl font-bold">{project.name}</h3>
                                 </div>
-                                <p className="font-semibold text-primary mb-2">{project.slug}</p>
+                                {project.slug && <p className="font-semibold text-primary mb-2">{project.slug}</p>}
                                 <p className="text-sm text-secondary mb-4">
                                     {project.description}
                                 </p>
@@ -51,22 +52,22 @@ export default function Home() {
                                     ))}
                                 </div>
                                 <div className="flex gap-3 text-sm">
-                                    <a href={project.live} target="_blank"
-                                        className="flex items-center gap-2 bg-blue-100 hover:bg-blue-300 px-3 py-1 rounded-full text-gray-800"
-                                    >Live Demo</a>
                                     <a href={project.github} target="_blank"
                                         className="flex items-center gap-2 bg-gray-100 hover:bg-gray-300 px-3 py-1 rounded-full text-gray-800">
                                         GitHub
-                                        <div className="flex items-center gap-1">
+                                        {project.stars ? <div className="flex items-center gap-1">
                                             <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
                                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                             </svg>
-                                            <span>309</span>
-                                        </div>
+                                            <span>{project.stars}</span>
+                                        </div> : null}
                                     </a>
+                                    {project.live && <a href={project.live} target="_blank"
+                                        className="flex items-center gap-2 bg-blue-100 hover:bg-blue-300 px-3 py-1 rounded-full text-gray-800"
+                                    >Live Demo</a>}
                                 </div>
                             </div>
-                            <div className="w-full md:w-64 h-40 rounded-lg flex items-center justify-center relative">
+                            {project.image && <div className="w-full md:w-64 h-40 rounded-lg flex items-center justify-center relative">
                                 <div className="text-center">
                                     <Image
                                         src={project.image}
@@ -75,7 +76,7 @@ export default function Home() {
                                         className="object-contain"
                                     />
                                 </div>
-                            </div>
+                            </div>}
                         </div>
                     ))}
                 </div>
