@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #5C5C5C;
+  --border-color: #e0e0e0; 
+}
+
+.dark {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --border-color: #242323; 
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.bordered {
+  border: 1px solid var(--border-color);
+}
