@@ -17,7 +17,7 @@ export default function ThemeSwitcher() {
     return (
         <button
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="p-1.5 rounded-md bordered transition-colors"
+            className="p-1.5 rounded-md bordered transition-colors hover:text-gray-400"
             aria-label="Toggle theme"
         >
             {theme === 'dark' ? <Moon size={18} /> : <Sun size={18} />}

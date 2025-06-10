@@ -4,9 +4,11 @@ import localFont from 'next/font/local';
 import './globals.css'
 import Image from 'next/image'
 import Nav from './components/Nav'
+import Footer from './components/Footer'
 import ThemeSwitcher from './components/ThemeSwitcher'
 import { ThemeProvider } from './components/ThemeProvider'
-import { Github, Linkedin, Twitter, Mail } from "lucide-react"
+import { Github, Linkedin, Twitter, Mail, Download } from "lucide-react"
+import { githubLink, linkedinLink, xLink, resumeLink, resumeDownloadLink, profilePictureLink, emailLink } from '../utils/constructUrls'
 
 const departureMono = localFont({
     src: [
@@ -34,45 +36,56 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={`${departureMono.className} min-h-screen`}>
+            <body className={`${departureMono.className} min-h-screen flex flex-col`}>
                 <ThemeProvider attribute="class" defaultTheme="system">
-                    <main>
-                        <div className="flex items-center justify-center">
-                            <div className="w-full max-w-3xl rounded-2xl shadow-xl p-8 md:p-12">
-                                {/* Profile Section */}
-                                <div className="flex flex-col">
-                                    <div className="flex justify-between items-start">
-                                        <div className="flex flex-col items-center text-center mb-10">
-                                            <Image
-                                                src="https://pbs.twimg.com/profile_images/1920358717276520448/Lo1UCmry_400x400.jpg"
-                                                alt="Profile picture"
-                                                width={80}
-                                                height={80}
-                                                className="rounded-full mb-4 object-cover"
-                                            />
-                                            <h1 className="text-2xl font-bold font-mono ">Mohy Elden</h1>
-                                            <p className="text-secondary mb-2">Software Engineer</p>
-                                            <div className="flex gap-4 mb-2">
-                                                <a href="https://x.com/mohyware" target="_blank" aria-label="X"><Twitter /></a>
-                                                <a href="https://github.com/mohyware" target="_blank" aria-label="GitHub"><Github /></a>
-                                                <a href="https://www.linkedin.com/in/mohyware" target="_blank" aria-label="LinkedIn"><Linkedin /></a>
-                                                <a href="mailto:mohieelden50@gmail.com" aria-label="Email" target="_blank" ><Mail /></a>
+                    <div className="flex flex-col min-h-screen">
+                        <main className="flex-1">
+                            <div className="flex items-center justify-center">
+                                <div className="w-full max-w-3xl rounded-2xl p-8 md:p-12">
+                                    {/* Profile Section */}
+                                    <div className="flex flex-col">
+                                        <div className="flex justify-between items-start">
+                                            <div className="flex flex-col items-center text-center mb-10">
+                                                <Image
+                                                    src={profilePictureLink}
+                                                    alt="Profile picture"
+                                                    width={80}
+                                                    height={80}
+                                                    className="rounded-full mb-4 object-cover"
+                                                />
+                                                <h1 className="text-2xl font-bold font-mono ">Mohy Elden</h1>
+                                                <p className="text-textLight dark:text-darkText mb-2">Software Engineer</p>
+                                                <div className="flex gap-4 mb-2">
+                                                    <a href={xLink} target="_blank" className='hover:text-gray-400' aria-label="X"><Twitter /></a>
+                                                    <a href={githubLink} target="_blank" className='hover:text-gray-400' aria-label="GitHub"><Github /></a>
+                                                    <a href={linkedinLink} target="_blank" className='hover:text-gray-400' aria-label="LinkedIn"><Linkedin /></a>
+                                                    <a href={emailLink} aria-label="Email" target="_blank" className='hover:text-gray-400' ><Mail /></a>
+                                                </div>
+                                                <div className="flex gap-2 items-center ">
+                                                    <a href={resumeLink} target="_blank"
+                                                        className="flex items-center gap-2 bg-gray-100 hover:bg-gray-300 px-3 py-1 mt-2 rounded-full text-gray-800">
+                                                        My Resume
+                                                    </a>
+                                                    <a
+                                                        href={resumeDownloadLink}
+                                                        download
+                                                        rel="noopener noreferrer">
+                                                        <Download className='hover:text-gray-400 mt-1' />
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <a href="https://drive.google.com/file/d/1p-y6slBxUvMZ21R7IFVVVXLqsDr45zoB/view" target="_blank"
-                                                className="flex items-center gap-2 bg-gray-100 hover:bg-gray-300 px-3 py-1 mt-2 rounded-full text-gray-800">
-                                                My Resume
-                                            </a>
+                                            <ThemeSwitcher />
                                         </div>
-                                        <ThemeSwitcher />
                                     </div>
+                                    <Nav />
+                                    {children}
                                 </div>
-                                <Nav />
-                                {children}
                             </div>
-                        </div>
-                    </main>
+                        </main>
+                        <Footer />
+                    </div>
                 </ThemeProvider>
             </body>
-        </html >
+        </html>
     )
 } 

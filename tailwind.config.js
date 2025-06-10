@@ -5,21 +5,20 @@ module.exports = {
         './components/**/*.{js,ts,jsx,tsx,mdx}',
         './app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
+    darkMode: 'class',
     theme: {
-        darkMode: 'class',
-        theme: {
-            extend: {
-                colors: {
-                    primary: '#FFFFFF',
-                    dark: '#121212',
-                    textLight: '#5C5C5C',
-                    textDark: '#FFFFFF',
-                    secondary: '#4B5563',
-                },
+        extend: {
+            colors: {
+                primary: '#FFFFFF',
+                dark: '#121212',
+                textLight: '#6B7280',
+                textDark: '#9CA3AF',
             },
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/typography'),
+    ],
 }
 
 
