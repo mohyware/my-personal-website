@@ -1,4 +1,4 @@
-import { discordLink, letterboxdLink, leetCodeLink, instagramLink, onvoLink } from "../../utils/constructUrls";
+import { discordLink, letterboxdLink, leetCodeLink, instagramLink, onvoLink, gameLibraryLink } from "../../utils/constructUrls";
 
 export default function Other() {
     return (
@@ -10,7 +10,9 @@ export default function Other() {
                 >Letterboxd profile</a>
                 .
                 <br />
-                I Love games too, especially story-driven ones this is my <a href={process.env.GAME_LIBRARY_LINK} target="_blank" className="underline hover:text-gray-400">Game library</a>.
+                I Love games too, especially story-driven ones this is my
+                <span> </span>
+                <a href={gameLibraryLink} target="_blank" className="underline hover:text-gray-400">Game library</a>.
                 <br />
             </p>
             <p>

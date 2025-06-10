@@ -8,7 +8,7 @@ export const letterboxdLink = `https://letterboxd.com/${process.env.LETTERBOX_US
 export const githubLink = `https://github.com/${process.env.GITHUB_USERNAME}`
 export const linkedinLink = `https://www.linkedin.com/in/${process.env.LINKEDIN_USERNAME}`
 export const xLink = `https://x.com/${process.env.X_USERNAME}`
-export const gameLibraryLink = `${process.env.GAME_LIBRARY_GOOGLE_DRIVE_ID}`
+export const gameLibraryLink = `${process.env.GAMES_LIST_LINK}`
 
 export const resumeLink = `https://drive.google.com/file/d/${process.env.RESUME_GOOGLE_DRIVE_ID}/view`
 export const resumeDownloadLink = `https://drive.google.com/uc?export=download&id=${process.env.RESUME_GOOGLE_DRIVE_ID}`
