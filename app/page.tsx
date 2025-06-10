@@ -47,7 +47,7 @@ export default async function Home() {
                                 </p>
                                 <div className="flex flex-wrap gap-2 mb-3">
                                     {project.tags.map((tag: string) => (
-                                        <span key={tag} className="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">{tag}</span>
+                                        <span key={tag} className="px-2 py-1 bg-gray-200 text-gray-800 text-xs rounded">{tag}</span>
                                     ))}
                                 </div>
                                 <div className="flex gap-3 text-sm">
@@ -55,7 +55,7 @@ export default async function Home() {
                                         className="flex items-center gap-2 bg-blue-100 hover:bg-blue-300 px-3 py-1 rounded-full text-gray-800"
                                     >Live Demo</a>}
                                     <a href={project.github} target="_blank"
-                                        className="flex items-center gap-2 bg-gray-100 hover:bg-gray-300 px-3 py-1 rounded-full text-gray-800">
+                                        className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded-full text-gray-800">
                                         GitHub
                                         {project.stars ? <div className="flex items-center gap-1">
                                             <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">

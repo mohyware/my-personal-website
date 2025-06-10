@@ -67,7 +67,7 @@ export default function RootLayout({
                                                 </div>
                                                 <div className="flex gap-2 items-center ">
                                                     <a href={resumeLink} target="_blank"
-                                                        className="flex items-center gap-2 bg-gray-100 hover:bg-gray-300 px-3 py-1 mt-2 rounded-full text-gray-800">
+                                                        className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-3 py-1 mt-2 rounded-full text-gray-800">
                                                         My Resume
                                                     </a>
                                                     <a
