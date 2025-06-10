@@ -9,6 +9,7 @@ import ThemeSwitcher from './components/ThemeSwitcher'
 import { ThemeProvider } from './components/ThemeProvider'
 import { Github, Linkedin, Twitter, Mail, Download } from "lucide-react"
 import { githubLink, linkedinLink, xLink, resumeLink, resumeDownloadLink, profilePictureLink, emailLink } from '../utils/constructUrls'
+import { Analytics } from "@vercel/analytics/next"
 
 const departureMono = localFont({
     src: [
@@ -26,7 +27,10 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
     title: 'Mohyware',
-    description: 'Personal portfolio showcasing my work and experience',
+    description: 'My personal portfolio showcasing my work and experience',
+    icons: {
+        icon: "/favicon.svg",
+    },
 }
 
 export default function RootLayout({
@@ -79,6 +83,7 @@ export default function RootLayout({
                                     </div>
                                     <Nav />
                                     {children}
+                                    <Analytics />
                                 </div>
                             </div>
                         </main>
