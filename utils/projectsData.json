@@ -1,6 +1,6 @@
 {
     "https://github.com/mohyware/clip-js": {
-      "description": "This full-stack blog application supports CRUD operations for blog posts, which can be written and rendered in Markdown. It also features a summarization capability powered by Python through MetaCall.",
+      "description": "This is a browser-based video editor that enables you to edit videos directly from your web browser. Everything including rendering happens right in your browser!",
       "tags": ["TypeScript", "NextJs", "Web Assembly", "Remotion", "FFmpeg"],
       "slug": "Online Video Editor",
       "image": "https://github.com/mohyware/clip-js/blob/main/images/image.png?raw=true"
