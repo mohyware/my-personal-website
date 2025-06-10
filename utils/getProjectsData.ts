@@ -1,6 +1,6 @@
 import { Project } from "./types";
-import { projectData } from "./projectsData";
 import { GitHubRepo } from "./types";
+import projectsData from "./projectsData.json";
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
 export async function fetchGitHubRepo(repoUrl: string): Promise<Partial<Project>> {
@@ -39,6 +39,7 @@ export async function fetchGitHubRepo(repoUrl: string): Promise<Partial<Project>
 
 
 export async function fetchAllProjects(): Promise<Project[]> {
+    const projectData: Record<string, Partial<Project>> = projectsData;
     const githubRepos = Object.keys(projectData);
 
     const githubProjects = await Promise.all(

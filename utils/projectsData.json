@@ -1,0 +1,32 @@
+{
+    "https://github.com/mohyware/clip-js": {
+      "description": "This full-stack blog application supports CRUD operations for blog posts, which can be written and rendered in Markdown. It also features a summarization capability powered by Python through MetaCall.",
+      "tags": ["TypeScript", "NextJs", "Web Assembly", "Remotion", "FFmpeg"],
+      "slug": "Online Video Editor",
+      "image": "https://github.com/mohyware/clip-js/blob/main/images/image.png?raw=true"
+    },
+    "https://github.com/metacall/polyglot-blog-example": {
+      "name": "Polyglot Blog",
+      "description": "This full-stack blog application supports CRUD operations for blog posts, which can be written and rendered in Markdown. It also features a summarization capability powered by Python through MetaCall.",
+      "tags": ["NextJs", "NodeJs", "Python", "MetaCall", "Markdown", "AI", "OpenAI"],
+      "live": "https://drive.google.com/file/d/1elCS0HcQmUdFkNAfvnPR6Zx2y8el4Xs6/view"
+    },
+    "https://github.com/mohyware/streak-punisher-bot": {
+      "slug": "Discord Bot"
+    },
+    "https://github.com/mohyware/E-Commerce-API": {
+    },
+    "https://github.com/mohyware/Personal-Storage-Service": {
+      "description": "A full-stack web application using with Nodejs serving a REST API with React as the frontend This application functions as a storage service similar to Google Drive but is focused exclusively on image.",
+      "tags": ["NodeJs", "React", "TypeScript", "MongoDB", "Express"]
+    },
+    "https://github.com/arunavabasucom/radis-app": {
+      "description": "RADIS app is a web application for Radis high-resolution infrared molecular spectra. Instead of writing code, this project aims to create an intuitive user interface (UI).",
+      "tags": ["React", "TypeScript", "FastAPI", "spectroscopy", "Python", "GSoC"]
+    },
+    "https://github.com/mohyware/Snake-Game-CPP": {
+      "description": "Classic arcade snake game in C++ using the graphics library.",
+      "tags": ["C++", "Graphics", "Game"],
+      "live": "https://www.linkedin.com/feed/update/urn:li:activity:7049039759846912000/"
+    }
+  }
