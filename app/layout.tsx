@@ -41,7 +41,7 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={`${departureMono.className} min-h-screen flex flex-col`}>
-                <ThemeProvider attribute="class" defaultTheme="system">
+                <ThemeProvider attribute="class" defaultTheme="dark">
                     <div className="flex flex-col min-h-screen">
                         <main className="flex-1">
                             <div className="flex items-center justify-center">

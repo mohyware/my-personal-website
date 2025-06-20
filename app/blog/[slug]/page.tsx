@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation'
 import { Post } from '../../../utils/types'
 import { rssLink } from '../../../utils/constructUrls'
 
+export const revalidate = 60;
+
 async function getPost(slug: string) {
     const response = await fetch(rssLink)
     const data = await response.json()

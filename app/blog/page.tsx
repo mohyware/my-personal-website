@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { Post } from '../../utils/types'
 import { rssLink } from '../../utils/constructUrls'
 
+export const revalidate = 60;
+
 async function getMediumPosts(): Promise<Post[]> {
     const response = await fetch(rssLink)
     const data = await response.json()

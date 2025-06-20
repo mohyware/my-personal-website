@@ -1,12 +1,18 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 export default function Nav() {
     const pathname = usePathname()
+    const [currentPath, setCurrentPath] = useState<string | null>(null)
+
+    useEffect(() => {
+        setCurrentPath(pathname)
+    }, [pathname])
 
     const linkClass = (path: string) =>
-        pathname === path
+        currentPath === path
             ? 'border-b-4 border-[#5C5C5C] dark:border-[#FFFFFF] pb-1'
             : 'hover:text-gray-400'
 
