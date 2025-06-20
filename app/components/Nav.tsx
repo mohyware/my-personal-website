@@ -11,10 +11,15 @@ export default function Nav() {
         setCurrentPath(pathname)
     }, [pathname])
 
-    const linkClass = (path: string) =>
-        currentPath === path
+    const linkClass = (path: string) => {
+        if (!currentPath) return ''
+        const isActive = path === '/'
+            ? currentPath === '/'
+            : currentPath.startsWith(path)
+        return isActive
             ? 'border-b-4 border-[#5C5C5C] dark:border-[#FFFFFF] pb-1'
             : 'hover:text-gray-400'
+    }
 
     return (
         <nav className="flex justify-center gap-6 mb-8 text-sm">
