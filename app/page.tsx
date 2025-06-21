@@ -4,6 +4,8 @@ import { Project } from "../utils/types"
 import { fetchAllProjects } from "../utils/getProjectsData"
 import { experience1Link } from "../utils/constructUrls"
 
+export const runtime = 'edge';
+
 export const revalidate = 60;
 
 export default async function Home() {
