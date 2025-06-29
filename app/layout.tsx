@@ -9,7 +9,7 @@ import ThemeSwitcher from './components/ThemeSwitcher'
 import { ThemeProvider } from './components/ThemeProvider'
 import { Github, Linkedin, Twitter, Mail, Download } from "lucide-react"
 import { githubLink, linkedinLink, xLink, resumeLink, resumeDownloadLink, profilePictureLink, emailLink } from '../utils/constructUrls'
-import { Analytics } from "@vercel/analytics/next"
+import Script from 'next/script';
 
 const departureMono = localFont({
     src: [
@@ -83,7 +83,12 @@ export default function RootLayout({
                                     </div>
                                     <Nav />
                                     {children}
-                                    <Analytics />
+                                    {/* Cloudflare Analytics Script */}
+                                    <Script
+                                        defer
+                                        src='https://static.cloudflareinsights.com/beacon.min.js'
+                                        data-cf-beacon='{"token": "0425a742e0ce434aab997032506587ad"}'
+                                    />
                                 </div>
                             </div>
                         </main>
