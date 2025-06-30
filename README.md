@@ -11,7 +11,7 @@ My Personal Website showcasing my work and experience.
 
 ## Installation
 1. Rename .env.example to .env and add your configurations:
-2. Update projects details in utils/projectsData.json.
+2. Add the desired project URLs to utils/projectsData.json. The details will be fetched automatically, but you can override specific fields if needed.
 
 ## Usage
 
