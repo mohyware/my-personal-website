@@ -1,13 +1,6 @@
 # Overview
 
-My Personal Website showcasing my work and experience.
-
-## Features
-
-- Modern and clean design
-- Responsive layout
-- Dark mode support
-- Tailwind CSS for styling
+My Personal Website showcasing my work and experience built with nextjs + tailwind.
 
 ## Installation
 1. Rename .env.example to .env and add your configurations:
