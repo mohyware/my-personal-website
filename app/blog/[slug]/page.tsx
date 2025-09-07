@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Post } from '../../../utils/types'
 import { rssLink } from '../../../utils/constructUrls'
+import { timeAgo } from "../../../utils/timeAgo";
 
 export const revalidate = 60;
 
@@ -41,12 +42,15 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             <article className="prose dark:prose-invert max-w-none">
 
                 <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-                <div className="mb-8">
-                    {new Date(post.pubDate).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                    })}
+                <div className="mb-8 space-x-3">
+                    <span>
+                        {new Date(post.pubDate).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        })}
+                    </span>
+                    <span>({timeAgo(post.pubDate)})</span>
                 </div>
                 <div
                     dangerouslySetInnerHTML={{ __html: post.content }}

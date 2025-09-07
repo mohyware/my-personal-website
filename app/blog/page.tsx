@@ -17,29 +17,48 @@ export const metadata: Metadata = {
 }
 
 export default async function Blog() {
-    const posts = await getMediumPosts()
+    const posts = await getMediumPosts();
+
+    const groups: { [tag: string]: Post[] } = {};
+    posts.forEach(post => {
+        let tag = post.categories?.[0] || 'Other';
+
+        // Custom
+        if (post.categories?.[0] === "openastronomy" || post.categories?.[1] === "openastronomy" || post.categories?.[2] === "openastronomy") {
+            tag = "GSoC Blogs";
+        }
+
+        if (!groups[tag]) groups[tag] = [];
+        groups[tag].push(post);
+    });
 
     return (
         <div className="max-w-4xl mx-auto py-8">
-            <div className="space-y-8">
-                {posts.map((post: Post) => (
-                    <article key={post.guid} className="pb-8">
-                        <h2 className="text-2xl font-semibold mb-2">
-                            <Link href={`/blog/${post.guid.split('/').pop()}`} className="hover:text-gray-400">
-                                {post.title}
-                            </Link>
-                        </h2>
-                        <div className="mb-4">
-                            {new Date(post.pubDate).toLocaleDateString('en-US', {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric'
-                            })}
-                        </div>
-                        <div className="line-clamp-3 text-textLight dark:text-darkText mb-4" dangerouslySetInnerHTML={{ __html: post.description }} />
-                    </article>
-                ))}
-            </div>
+            {Object.entries(groups).map(([tag, posts]) => (
+                <div key={tag} className="mb-12">
+                    <h2 className="text-3xl font-bold mb-4">{tag}</h2>
+                    <ul className="space-y-2">
+                        {posts.map(post => (
+                            <li key={post.guid} className="flex items-center">
+                                <span className="mr-2 text-lg">•</span>
+                                <Link
+                                    href={`/blog/${post.guid.split('/').pop()}`}
+                                    className="hover:text-gray-400 font-mono "
+                                >
+                                    {post.title}
+                                </Link>
+                                <span className="ml-2 text-sm text-gray-400">
+                                    {new Date(post.pubDate).toLocaleDateString('en-US', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: 'numeric'
+                                    })}
+                                </span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ))}
         </div>
-    )
-} 
+    );
+}
