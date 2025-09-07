@@ -13,7 +13,7 @@ export default async function Home() {
             {/* About Section */}
             <div className="mb-20">
                 <p className="text-left text-[1rem]">
-                    Hello! I&apos;m Mohy Elden Ibrahim, a Computer Science student.<br /> I&apos;m passionate about building stuff and contributing to open source.</p>
+                    Hello! I&apos;m Mohy Elden Ibrahim, a Computer Science student.<br /> I&apos;m passionate about building products that help others and contributing to open source.</p>
                 {/* <p className="text-left font-mono text-[1rem]" >I'm interested in Web Development, with a focus on the back end. I'm currently open to new opportunities in the software industry. </p> */}
             </div>
 

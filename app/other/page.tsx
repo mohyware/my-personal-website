@@ -1,4 +1,4 @@
-import { discordLink, letterboxdLink, leetCodeLink, instagramLink, onvoLink, gameLibraryLink } from "../../utils/constructUrls";
+import { discordLink, letterboxdLink, leetCodeLink, instagramLink, onvoLink, gameLibraryLink, rssLink } from "../../utils/constructUrls";
 
 export default function Other() {
     return (
@@ -35,6 +35,9 @@ export default function Other() {
                 <a href={instagramLink} target="_blank" className="underline hover:text-gray-400">
                     Instagram
                 </a>
+            </p>
+            <p>
+                This is also <a href={process.env.RSS_URL} target="_blank" className="underline hover:text-gray-400">my RSS feed</a>
             </p>
         </div>
     )
