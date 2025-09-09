@@ -2,14 +2,10 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Post } from '../../utils/types'
 import { rssLink } from '../../utils/constructUrls'
+import { parseRss } from '../../utils/parseRss'
 
 export const revalidate = 60;
-
-async function getMediumPosts(): Promise<Post[]> {
-    const response = await fetch(rssLink)
-    const data = await response.json()
-    return data.items || []
-}
+export const runtime = 'nodejs'
 
 export const metadata: Metadata = {
     title: 'Blog - Mohy',
@@ -17,7 +13,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Blog() {
-    const posts = await getMediumPosts();
+    const posts = await parseRss(rssLink, revalidate);
 
     const groups: { [tag: string]: Post[] } = {};
     posts.forEach(post => {
@@ -28,6 +24,10 @@ export default async function Blog() {
             tag = "GSoC Blogs";
         }
 
+        if (post.categories?.[0] === "google-summer-of-code" || post.categories?.[1] === "google-summer-of-code" || post.categories?.[2] === "google-summer-of-code") {
+            tag = "Writing";
+        }
+
         if (!groups[tag]) groups[tag] = [];
         groups[tag].push(post);
     });
@@ -36,7 +36,7 @@ export default async function Blog() {
         <div className="max-w-4xl mx-auto py-8">
             {Object.entries(groups).map(([tag, posts]) => (
                 <div key={tag} className="mb-12">
-                    <h2 className="text-3xl font-bold mb-4">{tag}</h2>
+                    <h2 className="text-3xl font-bold mb-4 font-mono">{tag}</h2>
                     <ul className="space-y-2">
                         {posts.map(post => (
                             <li key={post.guid} className="flex items-center">

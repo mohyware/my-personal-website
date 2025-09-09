@@ -1,4 +1,4 @@
-export const rssLink = `https://api.rss2json.com/v1/api.json?rss_url=${process.env.RSS_URL}`;
+export const rssLink = `${process.env.RSS_URL}`;
 export const emailLink = `mailto:${process.env.EMAIL}`;
 export const leetCodeLink = `https://leetcode.com/u/${process.env.LEETCODE_USERNAME}`;
 export const discordLink = `http://discordapp.com/users/${process.env.DISCORD_ID}`;

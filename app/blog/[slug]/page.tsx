@@ -1,16 +1,16 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { Post } from '../../../utils/types'
 import { rssLink } from '../../../utils/constructUrls'
 import { timeAgo } from "../../../utils/timeAgo";
+import { parseRss } from '../../../utils/parseRss'
 
 export const revalidate = 60;
+export const runtime = 'nodejs'
 
 async function getPost(slug: string) {
-    const response = await fetch(rssLink)
-    const data = await response.json()
-    const post = data.items.find((item: Post) => item.guid.split('/').pop() === slug)
-    return post
+    const items = await parseRss(rssLink, revalidate)
+    const post = items.find((item) => String(item.guid).split('/').pop() === slug)
+    return post || null
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -53,7 +53,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     <span>({timeAgo(post.pubDate)})</span>
                 </div>
                 <div
-                    dangerouslySetInnerHTML={{ __html: post.content }}
+                    dangerouslySetInnerHTML={{ __html: post.content || post.description }}
                 />
                 <div className="mt-8">
                     <a

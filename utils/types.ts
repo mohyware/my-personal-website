@@ -18,6 +18,7 @@ export interface Post {
     author: string;
     thumbnail?: string;
     categories?: string[];
+    content?: string;
 }
 
 export interface GitHubRepo {
