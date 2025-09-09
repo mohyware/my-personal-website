@@ -4,6 +4,7 @@ import { rssLink } from '../../../utils/constructUrls'
 import { timeAgo } from "../../../utils/timeAgo";
 import { parseRss } from '../../../utils/parseRss'
 import { siteBaseUrl } from '../../../utils/constructUrls'
+import { stripHtml } from '../../../utils/stripHtml'
 
 export const revalidate = 60;
 export const runtime = 'nodejs'
@@ -26,7 +27,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
     const url = siteBaseUrl ? `${siteBaseUrl}/blog/${slug}` : undefined
     const title = `${post.title} - Mohy's Blog`
-    const description = post.description
+    const rawDescription = post.content || post.description || ''
+    const description = stripHtml(rawDescription).slice(0, 240)
     const image = post.thumbnail || '/favicon.svg'
 
     return {
