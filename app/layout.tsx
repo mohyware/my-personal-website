@@ -10,6 +10,7 @@ import { ThemeProvider } from './components/ThemeProvider'
 import { Github, Linkedin, Twitter, Mail, Download } from "lucide-react"
 import { githubLink, linkedinLink, xLink, resumeLink, resumeDownloadLink, profilePictureLink, emailLink } from '../utils/constructUrls'
 import { Analytics } from "@vercel/analytics/next"
+import { siteBaseUrl } from '../utils/constructUrls'
 
 const departureMono = localFont({
     src: [
@@ -30,6 +31,28 @@ export const metadata: Metadata = {
     description: 'My personal portfolio showcasing my work and experience',
     icons: {
         icon: "/favicon.svg",
+    },
+    metadataBase: siteBaseUrl ? new URL(siteBaseUrl) : undefined,
+    openGraph: {
+        type: 'website',
+        url: siteBaseUrl || undefined,
+        siteName: 'Mohyware',
+        title: 'Mohyware',
+        description: 'My personal website.',
+        images: siteBaseUrl ? [
+            {
+                url: '/favicon.svg',
+                width: 256,
+                height: 256,
+                alt: 'Mohyware',
+            },
+        ] : undefined,
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Mohyware',
+        description: 'My personal website.',
+        images: siteBaseUrl ? ['/favicon.svg'] : undefined,
     },
 }
 

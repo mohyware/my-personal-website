@@ -14,3 +14,5 @@ export const resumeLink = `https://drive.google.com/file/d/${process.env.RESUME_
 export const resumeDownloadLink = `https://drive.google.com/uc?export=download&id=${process.env.RESUME_GOOGLE_DRIVE_ID}`
 export const profilePictureLink = `${process.env.PROFILE_PICTURE_URL}`
 export const experience1Link = `${process.env.EXPERIENCE_1_LINK}`
+
+export const siteBaseUrl = `${process.env.SITE_URL || ''}`

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { rssLink } from '../../../utils/constructUrls'
 import { timeAgo } from "../../../utils/timeAgo";
 import { parseRss } from '../../../utils/parseRss'
+import { siteBaseUrl } from '../../../utils/constructUrls'
 
 export const revalidate = 60;
 export const runtime = 'nodejs'
@@ -23,9 +24,32 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         }
     }
 
+    const url = siteBaseUrl ? `${siteBaseUrl}/blog/${slug}` : undefined
+    const title = `${post.title} - Mohy's Blog`
+    const description = post.description
+    const image = post.thumbnail || '/favicon.svg'
+
     return {
-        title: `${post?.title} - Mohy's Blog`,
-        description: post.description,
+        title,
+        description,
+        alternates: url ? { canonical: url } : undefined,
+        openGraph: {
+            type: 'article',
+            url,
+            title,
+            description,
+            images: [
+                {
+                    url: image,
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title,
+            description,
+            images: [image],
+        },
     }
 }
 
