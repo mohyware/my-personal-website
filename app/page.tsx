@@ -24,7 +24,7 @@ export default async function Home() {
                     <div className="flex items-start gap-3">
                         <span className="mt-1 w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600 block"></span>
                         <Link href={experience1Link} target="_blank" className="hover:text-gray-400">
-                            <span className="font-semibold">Software Engineer</span> <span className="text-xs border border-gray-400 rounded px-2 py-0.5 ml-1 align-middle">PRESENT</span>
+                            <span className="font-semibold">Software Engineer</span> <span className="text-xs border-gray-400 rounded px-2 py-0.5 ml-1 align-middle">May 2025 – Sep 2025</span>
                             <div className="text-xs text-textLight dark:text-darkText mt-1">Google Summer of Code 2025 @ Open Astronomy</div>
                         </Link>
                     </div>
@@ -34,50 +34,41 @@ export default async function Home() {
             {/* Projects Section */}
             <div className="mb-10">
                 <h2 className="text-lg font-bold mb-4">Projects</h2>
-                <div className="grid grid-cols-1 gap-8">
+                <div className="space-y-8">
                     {projects.map((project: Project) => (
-                        <div className="flex flex-col md:flex-row gap-6 p-6 rounded-lg bordered hover:shadow-md hover:shadow-gray-300 dark:hover:shadow-gray-800 transition-shadow"
-                            key={project.name}
-                        >
+                        <div key={project.name} className="flex items-start gap-3">
+                            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600 block flex-shrink-0"></span>
                             <div className="flex-1">
-                                <div className="flex items-center gap-2 mb-3">
-                                    <h3 className="text-xl font-bold">{project.name}</h3>
+                                <div className="mb-1">
+                                    <a href={project.github} target="_blank" className="font-semibold hover:text-gray-400 underline underline-offset-1">
+                                        {project.name}
+                                    </a>
+                                    <span className="text-gray-400 mx-2">–</span>
+                                    <span className="text-sm text-textLight dark:text-darkText">
+                                        {project.description}
+                                    </span>
                                 </div>
-                                {project.slug && <p className="font-semibold mb-2">{project.slug}</p>}
-                                <p className="text-sm text-textLight dark:text-darkText mb-4">
-                                    {project.description}
-                                </p>
-                                <div className="flex flex-wrap gap-2 mb-3">
-                                    {project.tags.map((tag: string) => (
-                                        <span key={tag} className="px-2 py-1 bg-gray-200 text-gray-800 text-xs rounded">{tag}</span>
-                                    ))}
-                                </div>
-                                <div className="flex gap-3 text-sm">
-                                    {project.live && <a href={project.live} target="_blank"
-                                        className="flex items-center gap-2 bg-blue-100 hover:bg-blue-300 px-3 py-1 rounded-full text-gray-800"
-                                    >Live Demo</a>}
-                                    <a href={project.github} target="_blank"
-                                        className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded-full text-gray-800">
-                                        GitHub
-                                        {project.stars ? <div className="flex items-center gap-1">
-                                            <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
-                                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                            </svg>
-                                            <span>{project.stars}</span>
-                                        </div> : null}
+                                <div className="flex gap-3 text-sm ">
+                                    {project.live && (
+                                        <a href={project.live} target="_blank" className="text-blue-400 hover:text-blue-300 underline">
+                                            Demo
+                                        </a>
+                                    )}
+                                    <a className="text-gray-400 hover:text-gray-300" href={project.github} target="_blank">
+                                        <span className="underline">
+                                            GitHub
+                                        </span>
+                                        {project.stars > 0 && (
+                                            <span className="ml-1">
+                                                ({project.stars}
+                                                <svg className="ml-1 w-4 h-4 fill-current inline" viewBox="0 0 24 24">
+                                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                                </svg>)
+                                            </span>
+                                        )}
                                     </a>
                                 </div>
                             </div>
-                            {project.image && <div className="w-full md:w-64 h-40 rounded-lg flex items-center justify-center relative">
-                                <div className="text-center">
-                                    <Image
-                                        src={project.image}
-                                        alt={project.name}
-                                        fill
-                                        className="object-contain"
-                                    />
-                                </div>
-                            </div>}
                         </div>
                     ))}
                 </div>
