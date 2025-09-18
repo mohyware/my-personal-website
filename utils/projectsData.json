@@ -24,6 +24,11 @@
     "https://github.com/mohyware/E-Commerce-API": {
       "description": "eCommerce API with JWT authentication, CRUD for products and users, shopping cart, and users reviews."
     },
+    "https://github.com/mohyware/game-of-life-in-webgpu": {
+      "name": "Game-of-Life-in-WebGPU",
+      "description": "Implementation of Conway's Game of Life using WebGPU.",
+      "live": "https://mohyware.github.io/game-of-life-in-webgpu/"
+    },
     "https://github.com/mohyware/Personal-Storage-Service": {
       "description": "Image storage service, built using React, Node.js, and PostgreSQL (Prisma).",
       "tags": ["NodeJs", "React", "TypeScript", "MongoDB", "Express"]
