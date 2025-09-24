@@ -40,7 +40,7 @@ export default async function Home() {
                             <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600 block flex-shrink-0"></span>
                             <div className="flex-1">
                                 <div className="mb-1">
-                                    <a href={project.github} target="_blank" className="font-semibold hover:text-gray-400 underline underline-offset-1">
+                                    <a href={project.github} target="_blank" className="font-semibold hover:text-gray-400">
                                         {project.name}
                                     </a>
                                     <span className="text-gray-400 mx-2">–</span>

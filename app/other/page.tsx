@@ -22,10 +22,10 @@ export default function Other() {
                     Discord
                 </a>
                 <span> </span>
-                ,
+                {/* ,
                 <span> </span>
                 <a href={leetCodeLink} target="_blank" className="underline hover:text-gray-400">LeetCode</a>
-                <span> </span>
+                <span> </span> */}
                 ,
                 <span> </span>
                 <a href={onvoLink} target="_blank" className="underline hover:text-gray-400">ONVO</a>
@@ -36,9 +36,9 @@ export default function Other() {
                     Instagram
                 </a>
             </p>
-            <p>
+            {/* <p>
                 This is also <a href={process.env.RSS_URL} target="_blank" className="underline hover:text-gray-400">my RSS feed</a>
-            </p>
+            </p> */}
         </div>
     )
 } 
