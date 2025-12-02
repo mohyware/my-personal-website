@@ -6,6 +6,9 @@
       "slug": "Online Video Editor",
       "image": "https://github.com/mohyware/clip-js/blob/main/images/image.png?raw=true"
     },
+    "https://github.com/mohyware/packet-meter": {
+      "name": "Packet-Meter"
+    },
     "https://github.com/mohyware/streak-punisher-bot": {
       "name": "Streak-Punisher-Bot",
       "slug": "Discord Bot"
