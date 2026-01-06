@@ -25,7 +25,7 @@ export default async function Blog() {
         }
 
         if (post.categories?.[0] === "google-summer-of-code" || post.categories?.[1] === "google-summer-of-code" || post.categories?.[2] === "google-summer-of-code" ||
-            post.categories?.[0] === "side-project" || post.categories?.[1] === "side-project" || post.categories?.[2] === "side-project"
+            post.categories?.[0] === "side-project" || post.categories?.[1] === "side-project" || post.categories?.[2] === "side-project" || post.categories?.[3] === "side-project"
         ) {
             tag = "Writing";
         }
