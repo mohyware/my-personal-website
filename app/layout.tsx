@@ -28,7 +28,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
     title: 'Mohyware',
-    description: 'My personal portfolio showcasing my work and experience',
+    description: 'Mohy Khalid (Mohyware) personal website, where i share my thoughts and projects.',
     icons: {
         icon: "/favicon.svg",
     },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         url: siteBaseUrl || undefined,
         siteName: 'Mohyware',
         title: 'Mohyware',
-        description: 'My personal website.',
+        description: 'Mohy Khalid (Mohyware) personal website, where i share my thoughts and projects.',
         images: siteBaseUrl ? [
             {
                 url: '/favicon.svg',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'Mohyware',
-        description: 'My personal website.',
+        description: 'Mohy Khalid (Mohyware) personal website, where i share my thoughts and projects.',
         images: siteBaseUrl ? ['/favicon.svg'] : undefined,
     },
 }
